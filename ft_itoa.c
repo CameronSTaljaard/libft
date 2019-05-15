@@ -3,7 +3,7 @@
 
 char	*ft_itoa(int n)
 {
-	char	*result;
+	char		*result;
 	int		length;
 
 	length = ft_intlen(n);

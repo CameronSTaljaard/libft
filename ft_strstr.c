@@ -5,7 +5,7 @@ char	*ft_strstr(char *haystack, const char *needle)
 	size_t	i;
 	size_t	j;
 
-	if (haystack == '\0' || needle == '\0')
+	if (haystack == NULL || needle == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
