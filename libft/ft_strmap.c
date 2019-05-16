@@ -9,7 +9,7 @@ char*	ft_strmap(char const *s, char (*f)(char))
 	i = 0;
 	while (s[i])
 		i++;
-	if (!(result = ft_strnew(i + 1)))
+	if (!(result = ft_strnew(i)))
 		return (NULL);
 	result[i] = '\0';
 	i = 0;
