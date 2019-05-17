@@ -2,12 +2,12 @@
 
 int ft_atoi(const char *str)
 {
-	int	result;
-	int	neg;
-	size_t	i;
+	long long int	result;
+	int				neg;
+	size_t			i;
 
 	result = 0;
-	neg = 0;
+	neg = 1;
 	i = 0;
 
 	while (ft_iswhitespace(str[i]))
@@ -22,8 +22,7 @@ int ft_atoi(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	if (neg)
-		return (-result);
-	else
-		return (result);
+	if (result > INT_MAX || result < INT_MIN)
+		return (0);
+	return (result * neg);
 }

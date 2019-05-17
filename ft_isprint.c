@@ -2,7 +2,7 @@
 
 int	ft_isprint(unsigned char c)
 {
-	if (c > 32 && c < 127)
+	if (c >= 32 && c <= 126)
 	{
 		return (TRUE);
 	}

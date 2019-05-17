@@ -3,11 +3,13 @@
 
 char	*ft_itoa(int n)
 {
-	char		*result;
+	char	*result;
 	int		length;
 
-	length = ft_intlen(n);
-	if(!(result = (char *)malloc(sizeof(char *) * length + 1)))
+	if (n == INT_MIN)
+		return ("-2147483648");
+
+	if(!(result = ft_strnew(ft_intlen(n))))
 		return (NULL);
 	result[length] = '\0';
 	if (n == 0)
