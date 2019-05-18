@@ -8,9 +8,6 @@ char*	ft_strtrim(char const *s)
 	size_t	end;
 	char*	result;
 
-	if(!s)
-		return (NULL);
-
 	i = 0;
 	while (ft_iswhitespace(s[i]))
 		i++;

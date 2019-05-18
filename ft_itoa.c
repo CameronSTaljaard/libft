@@ -7,10 +7,11 @@ char	*ft_itoa(int n)
 	int		length;
 
 	if (n == INT_MIN)
-		return ("-2147483648");
+		return (ft_strdup("-2147483648"));
 
 	if(!(result = ft_strnew(ft_intlen(n))))
 		return (NULL);
+	length = ft_intlen(n);
 	result[length] = '\0';
 	if (n == 0)
 	{
