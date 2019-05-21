@@ -1,17 +1,20 @@
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t size)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*pdst;
+	unsigned char	*psrc;
 
+	if (dst == NULL && src == NULL && size != 0)
+		return (NULL);
 	i = 0;
+	pdst = (unsigned char *)dst;
+	psrc = (unsigned char *)src;
 	while (i < size)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		if (((unsigned char *)dst)[i] == c)
-			return (dst);
+		pdst[i] = psrc[i];
 		i++;
 	}
-	return (dst);
+	return (dst + i);
 }

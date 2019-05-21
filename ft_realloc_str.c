@@ -6,7 +6,7 @@ char    *ft_realloc_str(char *str, int n)
 
     temp = realloc(str, n);
     if (!temp)
-        return (void *)0;
+        return (NULL);
     str = temp;
     return (str);
 }

@@ -14,7 +14,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }			t_list;
 
-// Part 1
+/* Part 1 */
 void*	ft_memset(void *str, int c, size_t size);
 void	ft_bzero(void *s, size_t size);
 void*	ft_memcpy(void *dest, const void *src, size_t size);

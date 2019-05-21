@@ -18,7 +18,7 @@ t_list*	ft_insert_sorted(t_list **head, void *content, unsigned int content_size
 		else
 			con_size = (content_size);
 			
-		if (memcmp((*head)->content, new_node->content, con_size) <= 0)
+		if (ft_memcmp((*head)->content, new_node->content, con_size) <= 0)
 		{
 			if((*head)->next != NULL)
 				new_node->next = (*head)->next;
