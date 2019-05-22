@@ -15,13 +15,14 @@
 
 void	ft_lstdel(t_list **link, void (*del)(void *, size_t))
 {
-	if (link)
+	t_list	*next;
+
+	while (*link)
 	{
-		if ((*link)->next)
-			ft_lstdel((*link)->next, (*link)->content_size);
-		if ((*link)->content)
-			del((*link)->content, (*link)->content_size);
+		next = (*link)->next;
+		del((*link)->content, (*link)->content_size);
 		free(*link);
-		*link = NULL;
+		*link = next;
 	}
+	*link == NULL;
 }
