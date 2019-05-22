@@ -13,6 +13,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t size)
 	psrc = (unsigned char *)src;
 	while (i < size)
 	{
+		if (psrc[i] == c)
+			return (dst + i);
 		pdst[i] = psrc[i];
 		i++;
 	}
