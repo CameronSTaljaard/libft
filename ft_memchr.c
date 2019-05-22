@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/22 17:23:44 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/05/22 17:23:45 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t size)
@@ -12,7 +24,7 @@ void	*ft_memchr(const void *str, int c, size_t size)
 	while (i < size)
 	{
 		if (((char *)str)[i] == c)
-			return ptr + i;
+			return (ptr + i);
 		i++;
 	}
 	return (NULL);

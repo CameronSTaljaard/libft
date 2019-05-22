@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/22 17:22:28 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/05/22 17:22:29 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strstr(char *haystack, const char *needle)
@@ -19,6 +31,6 @@ char	*ft_strstr(char *haystack, const char *needle)
 			j++;
 		}
 		i++;
-	} 
+	}
 	return (NULL);
 }

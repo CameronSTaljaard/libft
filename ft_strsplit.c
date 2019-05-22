@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/22 18:37:04 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/05/22 18:37:05 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
-int	ft_substrlen(const char* str, int index, char delim)
+int		ft_substrlen(const char *str, int index, char delim)
 {
 	size_t	i;
 
@@ -14,10 +26,10 @@ int	ft_substrlen(const char* str, int index, char delim)
 	return (i);
 }
 
-char*	ft_substrcpy(char const *str, int index, int delim)
+char	*ft_substrcpy(char const *str, int index, int delim)
 {
 	size_t	i;
-	char*	result;
+	char	*result;
 
 	i = 0;
 	result = ft_strnew(ft_substrlen(str, index, delim) + 1);
@@ -31,9 +43,10 @@ char*	ft_substrcpy(char const *str, int index, int delim)
 	return (result);
 }
 
-int	count_substrings(const char* str, char delim, int index)
+int		count_substrings(const char *str, char delim, int index)
 {
-	int	result;
+	int		result;
+
 	if (!(str[index]))
 		return (0);
 	result = 0;
@@ -49,10 +62,10 @@ int	count_substrings(const char* str, char delim, int index)
 
 char	**ft_strsplit(char const *str, char delim)
 {
-	int	count;
-	char**	result;
-	int	i;
-	int	j;
+	int		count;
+	char	**result;
+	int		i;
+	int		j;
 
 	count = count_substrings(str, delim, 0);
 	if (!(result = (char **)malloc(sizeof(char **) * count)))

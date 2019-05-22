@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/22 17:11:18 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/05/22 17:11:19 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	overflowed(int a)
+int		overflowed(int a)
 {
 	int result;
 	int b;
-	
+
 	b = 10;
 	result = a * b;
 	if (result / a != b)
@@ -14,7 +26,7 @@ int	overflowed(int a)
 	return (FALSE);
 }
 
-int ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	int				result;
 	int				neg;
@@ -23,7 +35,6 @@ int ft_atoi(const char *str)
 	result = 0;
 	neg = 1;
 	i = 0;
-
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '-')

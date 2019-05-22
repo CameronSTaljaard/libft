@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_insert_node.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/22 17:15:38 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/05/22 17:15:39 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-t_list*	ft_insert_node(t_list **head, t_list *node)
+t_list	*ft_insert_node(t_list **head, t_list *node)
 {
-	if(head && node)
+	if (head && node)
 	{
 		(*head)->next = node;
 	}

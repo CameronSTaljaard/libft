@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/22 17:15:23 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/05/22 17:15:24 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_itoa(int n)
@@ -7,16 +19,12 @@ char	*ft_itoa(int n)
 
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
-
-	if(!(result = ft_strnew(ft_intlen(n))))
+	if (!(result = ft_strnew(ft_intlen(n))))
 		return (NULL);
 	length = ft_intlen(n);
 	result[length] = '\0';
 	if (n == 0)
-	{
-		result[0] = '0';
-		return (result);
-	}
+		return (ft_strdup("0"));
 	if (n < 0)
 	{
 		result[0] = '-';
