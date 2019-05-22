@@ -13,7 +13,7 @@ SRC		+= ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.
 # Bonus
 SRC		+= ft_lstnew.c ft_lstdelone.c ft_lstadd.c ft_lstiter.c ft_lstmap.c
 # Extra
-SRC		+= ft_iswhitespace.c ft_wordcount.c ft_sort_array.c ft_strswap.c ft_realloc_str.c ft_insert_sorted.c ft_insert_node.c ft_print_list.c
+SRC		+= ft_iswhitespace.c ft_wordcount.c ft_sort_array.c ft_strswap.c ft_insert_sorted.c ft_insert_node.c ft_print_list.c
 SRC		+= ft_free_list.c ft_min.c ft_max.c ft_isupper.c ft_intlen.c
 
 OBJ		= $(SRC:.c=.o)

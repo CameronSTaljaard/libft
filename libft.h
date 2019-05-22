@@ -83,7 +83,6 @@ int		ft_iswhitespace(char c);
 int		ft_wordcount(char *str, char delim);
 void	ft_sort_array(char **str, int len);
 void	ft_strswap(char **str1, char **str2);
-char	*ft_realloc_str(char *str, int n);
 t_list*	ft_insert_sorted(t_list **head, void *content, unsigned int content_size);
 t_list*	ft_insert_node(t_list **head, t_list *node);
 void	ft_print_list(t_list *head, char type);
