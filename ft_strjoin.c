@@ -18,10 +18,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t		j;
 	char		*result;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
-	result = ft_strnew(i + j + 1);
-	if (result == NULL)
+	if (!(result = ft_strnew(i + j + 1)))
 		return (NULL);
 	result[i + j + 1] = '\0';
 	i = 0;

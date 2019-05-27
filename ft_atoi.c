@@ -15,13 +15,9 @@
 int		overflowed(int a)
 {
 	int result;
-	int b;
 
-	if (a == 0)
-		return (FALSE);
-	b = 10;
-	result = a * b;
-	if (result / a != b)
+	result = a * 10;
+	if (a != 0 && result / a != 10)
 	{
 		return (TRUE);
 	}
@@ -36,6 +32,7 @@ int		ft_atoi(const char *str)
 
 	result = 0;
 	i = 0;
+	neg = 0;
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -47,9 +44,9 @@ int		ft_atoi(const char *str)
 	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (overflowed(result) && neg == 1)
+		if (overflowed(result) && neg == 0)
 			return (-1);
-		else if (overflowed(result) && neg == -1)
+		else if (overflowed(result) && neg == 1)
 			return (0);
 		result = result * 10 + str[i] - '0';
 		i++;

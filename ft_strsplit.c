@@ -67,6 +67,8 @@ char	**ft_strsplit(char const *str, char delim)
 	int		i;
 	int		j;
 
+	if (!str || !delim)
+		return (NULL);
 	count = count_substrings(str, delim, 0);
 	if (!(result = (char **)malloc(sizeof(char **) * count)))
 		return (NULL);
