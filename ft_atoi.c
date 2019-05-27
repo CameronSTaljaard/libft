@@ -32,26 +32,22 @@ int		ft_atoi(const char *str)
 
 	result = 0;
 	i = 0;
-	neg = 0;
+	neg = 1;
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
-			neg = 1;
-		i++;
+		if (str[i++] == '-')
+			neg = -1;
 	}
-	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (overflowed(result) && neg == 0)
+		if (overflowed(result) && neg == 1)
 			return (-1);
-		else if (overflowed(result) && neg == 1)
+		else if (overflowed(result) && neg == -1)
 			return (0);
 		result = result * 10 + str[i] - '0';
 		i++;
 	}
-	if (neg == 1)
-		return (-result);
-	return (result);
+	return (result * neg);
 }
