@@ -6,7 +6,7 @@
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 18:15:37 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/05/22 18:15:38 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/05/30 13:29:36 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct	s_coord
+typedef struct		s_coord
 {
 	int		x;
 	int		y;
 	int		z;
-}				t_coord;
+}					t_coord;
 
 /*
 **Part 1
@@ -61,10 +61,10 @@ int					ft_atoi(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
-int					isascii(int c);
-int					isprint(int c);
-int					toupper(int c);
-int					tolower(int c);
+int					ft_isascii(int c);
+int					ft_isprint(int c);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
 
 /*
 **Part 2

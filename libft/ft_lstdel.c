@@ -24,5 +24,5 @@ void	ft_lstdel(t_list **link, void (*del)(void *, size_t))
 		free(*link);
 		*link = next;
 	}
-	*link == NULL;
+	*link = NULL;
 }

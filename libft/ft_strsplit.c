@@ -70,8 +70,9 @@ char	**ft_strsplit(char const *str, char delim)
 	if (!str || !delim)
 		return (NULL);
 	count = count_substrings(str, delim, 0);
-	if (!(result = (char **)malloc(sizeof(char **) * count)))
+	if (!(result = (char **)malloc(sizeof(char **) * count + 1)))
 		return (NULL);
+	result[count] = 0;
 	i = 0;
 	j = 0;
 	while (i < count)
