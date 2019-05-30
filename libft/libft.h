@@ -14,6 +14,12 @@
 # define LIBFT_H
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define RESET "\033[00m"
+# define GREEN "\033[32m"
+# define BLUE "\033[34m"
+# define WHITE "\033[37m"
+# define RED "\033[31m"
+# define CYAN "\033[36m"
 # define TRUE 1
 # define FALSE 0
 # include <string.h>
@@ -119,5 +125,9 @@ int					ft_max(int num1, int num2);
 int					ft_isupper(int c);
 int					ft_intlen(int n);
 int					ft_frequency(char *str, char c);
+void				ft_putendl_col_fd(char* colour, char *str, int fd);
+void				ft_putstr_col_fd(char *colour, char *str, int fd);
+void				ft_putnbr_col_fd(char *colour, int nbr, int fd);
+void				ft_putchar_col_fd(char *colour, int c, int fd);
 
 #endif

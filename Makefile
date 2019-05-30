@@ -1,13 +1,14 @@
-NAME	= test
-LIBFT	= libft.a
-CC	= gcc
-CFLAGS	= -Wall -Wextra -Werror
-HEADERS	= -I libft
+NAME	= test.exe
+FLAGS	= -Wall -Wextra -Werror
 SRC		= main.c
+LIBFT	= libft/*.c
+TESTS	= tests/*.c
 OBJ		= $(SRC:.c=.o)
+COLOUR	= 147
 
-$(NAME): libft/libft.h libft/libft.a main.c
-	$(CC) $(CFLAGS) $(SRC) $(LIBFT) $(HEADERS) -o $(NAME)
+$(NAME): $(LIBFT) $(TESTS) $(SRC)
+	gcc $(FLAGS) $(SRC) $(LIBFT) $(TESTS) -o $(NAME)
+	echo "\033[32m$(NAME) compiled successfully!\e[0m"
 
 all: $(NAME)
 
