@@ -1,4 +1,4 @@
-NAME	= test.exe
+NAME	= test
 FLAGS	= -Wall -Wextra -Werror
 SRC		= main.c
 LIBFT	= libft/*.c

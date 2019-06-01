@@ -2,28 +2,28 @@
 #include "string.h"
 #include <time.h>
 
-int	memset_test(struct timespec delay, int verbosity)
+int	memccpy_test(struct timespec delay, int verbosity)
 {
-	char str1[] = "-----";
-	char str2[] = "-----";
+	char str1[] = "ABCDE";
+	char str2[] = "ABCDE";
 
-	ft_putendl_col_fd(WHITE, "Testing ft_memset:", 1);
+	ft_putendl_col_fd(WHITE, "Testing ft_memccpy:", 1);
 	nanosleep(&delay, NULL);
 
-	memset(str1, 'A', 3);
-	ft_memset(str2, 'A', 3);
+	memccpy(str1, "HELLO", 'E', 5);
+	ft_memccpy(str2, "HELLO", 'E', 5);
 
 	if (verbosity)
 	{
-		ft_putendl_col_fd(WHITE, "Passing (\"-----\", 'A', 3) to memset, and ft_memset", 1);
+		ft_putendl("Passing (\"ABCDE\", \"HELLO\", 'E', 5) to memccpy, and ft_memccpy");
 		nanosleep(&delay, NULL);
 
 		ft_putendl_col_fd(WHITE, "Comparing results:", 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "memccpy result: ", 1);
 		ft_putendl_col_fd(CYAN, str1, 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "ft_memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "ft_memccpy result: ", 1);
 		ft_putendl_col_fd(CYAN, str2, 1);
 		nanosleep(&delay, NULL);
 	}

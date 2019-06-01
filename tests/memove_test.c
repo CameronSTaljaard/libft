@@ -2,28 +2,30 @@
 #include "string.h"
 #include <time.h>
 
-int	memset_test(struct timespec delay, int verbosity)
+int	memmove_test(struct timespec delay, int verbosity)
 {
-	char str1[] = "-----";
-	char str2[] = "-----";
+	char str1[] = "Overlap Test";
+	char str2[] = "Overlap Test";
 
-	ft_putendl_col_fd(WHITE, "Testing ft_memset:", 1);
+	ft_putendl_col_fd(WHITE, "Testing ft_memmove:", 1);
 	nanosleep(&delay, NULL);
 
-	memset(str1, 'A', 3);
-	ft_memset(str2, 'A', 3);
+	memmove(str1 + 8, str1, strlen(str1) - 8);
+	ft_memmove(str2 + 8, str2, strlen(str2) - 8);
 
 	if (verbosity)
 	{
-		ft_putendl_col_fd(WHITE, "Passing (\"-----\", 'A', 3) to memset, and ft_memset", 1);
+		ft_putendl("Variable str1 = \"Overlap test\"");
+		ft_putendl("Passing (str1+8, str1, strlen(str)-8) to memmove, and ft_memmove");
+		ft_putendl("");
 		nanosleep(&delay, NULL);
 
 		ft_putendl_col_fd(WHITE, "Comparing results:", 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "memmove result: ", 1);
 		ft_putendl_col_fd(CYAN, str1, 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "ft_memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "ft_memmove result: ", 1);
 		ft_putendl_col_fd(CYAN, str2, 1);
 		nanosleep(&delay, NULL);
 	}

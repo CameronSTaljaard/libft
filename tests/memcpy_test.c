@@ -2,28 +2,28 @@
 #include "string.h"
 #include <time.h>
 
-int	memset_test(struct timespec delay, int verbosity)
+int	memcpy_test(struct timespec delay, int verbosity)
 {
 	char str1[] = "-----";
 	char str2[] = "-----";
 
-	ft_putendl_col_fd(WHITE, "Testing ft_memset:", 1);
+	ft_putendl_col_fd(WHITE, "Testing ft_memcpy:", 1);
 	nanosleep(&delay, NULL);
 
-	memset(str1, 'A', 3);
-	ft_memset(str2, 'A', 3);
+	memcpy(str1, "HELLO", 5);
+	ft_memcpy(str2, "HELLO", 5);
 
 	if (verbosity)
 	{
-		ft_putendl_col_fd(WHITE, "Passing (\"-----\", 'A', 3) to memset, and ft_memset", 1);
+		ft_putendl("Passing (\"-----\", \"HELLO\", 5) to ft_memcpy and memcpy");
 		nanosleep(&delay, NULL);
 
 		ft_putendl_col_fd(WHITE, "Comparing results:", 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "memcpy result: ", 1);
 		ft_putendl_col_fd(CYAN, str1, 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "ft_memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "ft_memcpy result: ", 1);
 		ft_putendl_col_fd(CYAN, str2, 1);
 		nanosleep(&delay, NULL);
 	}

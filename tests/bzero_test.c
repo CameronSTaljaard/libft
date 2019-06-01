@@ -1,29 +1,28 @@
-#include "../libft/libft.h"
-#include "string.h"
 #include <time.h>
+#include "../libft/libft.h"
+#include <strings.h>
 
-int	memset_test(struct timespec delay, int verbosity)
+int	bzero_test(struct timespec delay, int verbosity)
 {
-	char str1[] = "-----";
-	char str2[] = "-----";
-
-	ft_putendl_col_fd(WHITE, "Testing ft_memset:", 1);
+	char str1[] = "ABCDE";
+	char str2[] = "ABCDE";
+	ft_putendl_col_fd(WHITE, "Testing ft_bzero:", 1);
 	nanosleep(&delay, NULL);
 
-	memset(str1, 'A', 3);
-	ft_memset(str2, 'A', 3);
+	bzero(str1, 5);
+	ft_bzero(str2, 5);
 
 	if (verbosity)
 	{
-		ft_putendl_col_fd(WHITE, "Passing (\"-----\", 'A', 3) to memset, and ft_memset", 1);
+		ft_putendl("Passing (\"ABCDE\", 5) to bzero, and ft_bzero");
 		nanosleep(&delay, NULL);
 
 		ft_putendl_col_fd(WHITE, "Comparing results:", 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "bzero result: ", 1);
 		ft_putendl_col_fd(CYAN, str1, 1);
 		nanosleep(&delay, NULL);
-		ft_putstr_col_fd(WHITE, "ft_memset result: ", 1);
+		ft_putstr_col_fd(WHITE, "ft_bzero result: ", 1);
 		ft_putendl_col_fd(CYAN, str2, 1);
 		nanosleep(&delay, NULL);
 	}
