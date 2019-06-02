@@ -60,6 +60,9 @@ void	run_tests(struct timespec delay, int verbosity)
 	result += memccpy_test(delay, verbosity);
 	result += memmove_test(delay, verbosity);
 	result += memchr_test(delay, verbosity);
+	result += memcmp_test(delay, verbosity);
+	result += strlen_test(delay, verbosity);
+	result += strdup_test(delay, verbosity);
 
 	if (result != 0)
 	{
