@@ -20,10 +20,10 @@ void	*ft_memchr(const void *str, int c, size_t size)
 	if (size == 0)
 		return (NULL);
 	i = 0;
-	ptr = (char *)str;
+	ptr = (unsigned char *)str;
 	while (i < size)
 	{
-		if (((char *)str)[i] == c)
+		if (ptr[i] == c)
 			return (ptr + i);
 		i++;
 	}
