@@ -15,7 +15,9 @@ SRCS		+= ft_lstnew.c ft_lstdelone.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_lstd
 # Extra
 SRCS		+= ft_iswhitespace.c ft_wordcount.c ft_sort_array.c ft_strswap.c ft_insert_node.c ft_free_list.c ft_min.c ft_max.c ft_isupper.c
 SRCS		+= ft_intlen.c ft_frequency.c ft_putendl_col_fd.c ft_putchar_col_fd.c ft_putstr_col_fd.c
-SRCS		+= ft_putnbr_col.c ft_putnbr_col_fd.c
+SRCS		+= ft_putnbr_col_fd.c
+# get_next_line
+SRCS		+= get_next_line.c ft_copyuntil.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -25,16 +27,16 @@ FLAGS =		-Wall -Werror -Wextra
 all:		$(NAME)
 
 $(NAME):
-		@gcc $(FLAGS) -c $(SRCS)
-		@ar rc $(NAME) $(OBJS)
-		@ranlib $(NAME)
+		gcc $(FLAGS) -c $(SRCS)
+		ar rc $(NAME) $(OBJS)
+		ranlib $(NAME)
 
 clean:
-		@/bin/rm -f $(OBJS)
-		@echo "All object files removed."
+		/bin/rm -f $(OBJS)
+		echo "All object files removed."
 
 fclean:		clean
 		/bin/rm $(NAME)
 
 re:		fclean all
-		@make clean
+		make clean

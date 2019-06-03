@@ -31,6 +31,13 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_gnl
+{
+	char			*content;
+	int				fd;
+	struct s_gnl	*next;
+}					t_gnl;
+
 typedef struct		s_coord
 {
 	int		x;
@@ -128,5 +135,7 @@ void				ft_putendl_col_fd(char *colour, char *str, int fd);
 void				ft_putstr_col_fd(char *colour, char *str, int fd);
 void				ft_putnbr_col_fd(char *colour, int nbr, int fd);
 void				ft_putchar_col_fd(char *colour, int c, int fd);
+int					ft_copyuntil(char **dst, char *src, char c);
+int					ft_strcon(char *str, char c);
 
 #endif
