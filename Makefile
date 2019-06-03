@@ -8,7 +8,7 @@ COLOUR	= 147
 
 $(NAME): $(LIBFT) $(TESTS) $(SRC)
 	gcc $(FLAGS) $(SRC) $(LIBFT) $(TESTS) -o $(NAME)
-	echo "\033[32m$(NAME) compiled successfully!\e[0m"
+	echo "\033[32m$(NAME) compiled successfully!"
 
 all: $(NAME)
 
