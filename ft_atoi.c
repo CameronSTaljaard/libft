@@ -12,42 +12,39 @@
 
 #include "libft.h"
 
-static int		overflowed(int a)
+int	ft_atoi(const char *str)
 {
-	int result;
+	int i;
+	int neg;
+	int res;
 
-	result = a * 10;
-	if (a != 0 && result / a != 10)
-	{
-		return (TRUE);
-	}
-	return (FALSE);
-}
-
-int				ft_atoi(const char *str)
-{
-	int				result;
-	int				neg;
-	size_t			i;
-
-	result = 0;
 	i = 0;
 	neg = 1;
+	res = 0;
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i++] == '-')
+		if (str[i] == '-')
 			neg = -1;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		if (overflowed(result) && neg == 1)
-			return (-1);
-		else if (overflowed(result) && neg == -1)
-			return (0);
-		result = result * 10 + str[i] - '0';
 		i++;
 	}
-	return (result * neg);
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	return (res * neg);
 }
+
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+	printf("%d\n", ft_atoi("-21474836490"));
+	printf("%d\n", atoi("-21474836490"));
+
+	printf("%d\n", ft_atoi("2147483647"));
+	printf("%d\n", ft_atoi("2147483647"));
+}
+
