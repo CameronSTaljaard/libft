@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_substrlen(const char *str, int index, char delim)
+static int		ft_substrlen(const char *str, int index, char delim)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ int		ft_substrlen(const char *str, int index, char delim)
 	return (i);
 }
 
-char	*ft_substrcpy(char const *str, int index, int delim)
+static char		*ft_substrcpy(char const *str, int index, int delim)
 {
 	size_t	i;
 	char	*result;
@@ -43,7 +43,7 @@ char	*ft_substrcpy(char const *str, int index, int delim)
 	return (result);
 }
 
-int		count_substrings(const char *str, char delim, int index)
+static int		count_substrings(const char *str, char delim, int index)
 {
 	int		result;
 
@@ -60,7 +60,7 @@ int		count_substrings(const char *str, char delim, int index)
 	return (result + count_substrings(str, delim, index));
 }
 
-char	**ft_strsplit(char const *str, char delim)
+char			**ft_strsplit(char const *str, char delim)
 {
 	int		count;
 	char	**result;

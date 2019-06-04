@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		overflowed(int a)
+static int		overflowed(int a)
 {
 	int result;
 
@@ -24,7 +24,7 @@ int		overflowed(int a)
 	return (FALSE);
 }
 
-int		ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
 	int				result;
 	int				neg;
