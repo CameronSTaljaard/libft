@@ -13,18 +13,6 @@
 #include "get_next_line.h"
 #include "libft.h"
 #include <stdlib.h>
-#include "ft_copyuntil.c"
-#include "ft_putendl.c"
-#include "ft_lstnew.c"
-#include "ft_lstadd.c"
-#include "ft_strnew.c"
-#include "ft_strjoin.c"
-#include "ft_strchr.c"
-#include "ft_strlen.c"
-#include "ft_strclr.c"
-#include "ft_memcpy.c"
-#include "ft_memset.c"
-#include "ft_strcon.c"
 
 static t_list			*get_link(t_list **file, int fd)
 {
@@ -74,7 +62,6 @@ int						get_next_line(const int fd, char **line)
 	pos = get_link(&file, fd);
 	if (!(*line = ft_strnew(1)))
 		return (-1);
-
 	ret = read_file(fd, pos);
 	if (ret < BUFF_SIZE && !ft_strlen(pos->content))
 		return (0);
