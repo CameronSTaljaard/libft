@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/04 12:13:10 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/06/04 12:13:11 by ctaljaar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include "libft.h"
 #include <stdlib.h>
@@ -31,42 +43,39 @@ static t_list			*get_link(t_list **file, int fd)
 	return (tmp);
 }
 
-static int				read_file(int fd, char **buffer, t_list *link)
+static int				read_file(int fd, t_list *link)
 {
 	int		ret;
+	int		end;
+	char	buffer[BUFF_SIZE];
 
-	ret = 0;
-	while (ret = read(fd, *buffer, BUFF_SIZE))
+	end = 0;
+	while ((ret = read(fd, buffer, BUFF_SIZE)))
 	{
 		buffer[ret] = '\0';
-		link->content = ft_strjoin(link->content, *buffer);
-		if (ft_strcon(*buffer, '\n'))
-			return (0);
+		if (!(link->content = ft_strjoin(link->content, buffer)))
+			return (-1);
+		if (ft_strchr(buffer, '\n'))
+			break ;
+		end++;
 	}
-	return (ret);
+	return (end);
 }
 
 int						get_next_line(const int fd, char **line)
 {
-	char				buffer[BUFF_SIZE + 1];
 	static t_list		*file;
 	size_t				i;
 	int					ret;
 	t_list				*pos;
 
-	if ((fd < 0 || line == NULL || read(fd, buffer, 0) < 0))
+	if ((fd < 0 || line == NULL || read(fd, NULL, 0) < 0))
 		return (-1);
 	pos = get_link(&file, fd);
-	if(!(*line = ft_strnew(1)))
+	if (!(*line = ft_strnew(1)))
 		return (-1);
-	while ((ret = read(fd, buffer, BUFF_SIZE)))
-	{
-		buffer[ret] = '\0';
-		if(!(pos->content = ft_strjoin(pos->content, buffer)))
-			return (-1);
-		if (ft_strchr(buffer, '\n'))
-			break ;
-	}
+
+	ret = read_file(fd, pos);
 	if (ret < BUFF_SIZE && !ft_strlen(pos->content))
 		return (0);
 	i = ft_copyuntil(line, pos->content, '\n');

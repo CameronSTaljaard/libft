@@ -17,7 +17,7 @@ SRCS		+= ft_iswhitespace.c ft_wordcount.c ft_sort_array.c ft_strswap.c ft_insert
 SRCS		+= ft_intlen.c ft_frequency.c ft_putendl_col_fd.c ft_putchar_col_fd.c ft_putstr_col_fd.c
 SRCS		+= ft_putnbr_col_fd.c
 # get_next_line
-SRCS		+= get_next_line.c ft_copyuntil.c
+SRCS		+= ft_copyuntil.c get_next_line.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -35,8 +35,7 @@ clean:
 		/bin/rm -f $(OBJS)
 		echo "All object files removed."
 
-fclean:		clean
-		/bin/rm $(NAME)
+fclean: clean
+		/bin/rm -f $(NAME)
 
-re:		fclean all
-		make clean
+re: fclean all
