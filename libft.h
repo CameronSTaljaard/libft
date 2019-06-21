@@ -12,8 +12,8 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define INT_MIN -2147483648
-# define INT_MAX 2147483647
+# define MIN_INT -2147483648
+# define MAX_INT 2147483647
 # define RESET "\033[00m"
 # define GREEN "\033[32m"
 # define BLUE "\033[34m"
@@ -64,7 +64,7 @@ char				*ft_strncat(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
-char				*ft_strstr(char *haystack, const char *needle);
+char				*ft_strstr(char *haystack, char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
 							size_t size);
 int					ft_strcmp(const char *str1, const char *str2);

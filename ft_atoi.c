@@ -36,15 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * neg);
 }
-
-#include <stdio.h>
-#include <stdlib.h>
-int main(void)
-{
-	printf("%d\n", ft_atoi("-21474836490"));
-	printf("%d\n", atoi("-21474836490"));
-
-	printf("%d\n", ft_atoi("2147483647"));
-	printf("%d\n", ft_atoi("2147483647"));
-}
-
