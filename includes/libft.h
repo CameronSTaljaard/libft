@@ -142,6 +142,7 @@ void				ft_copy_array(char **arr1, char **arr2);
 void				ft_freearray(char **arr);
 int					ft_isnum(char *str);
 int					string_input(char *str);
-void				*ft_realloc(void *ptr, size_t new_size);
+void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
+void				ft_putnbrl(int n);
 
 #endif
