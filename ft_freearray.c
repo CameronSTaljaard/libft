@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   freearray.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 17:21:41 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/06/23 10:43:18 by ctaljaar         ###   ########.fr       */
+/*   Created: 2018/08/25 14:43:48 by agabrie           #+#    #+#             */
+/*   Updated: 2018/08/27 09:46:26 by agabrie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_freearray(char **arr)
 {
 	int i;
 
 	i = 0;
-	while ((s1[i] != '\0') || (s2[i] != '\0'))
+	while (arr[i])
 	{
-		if ((unsigned char)s1[i] > (unsigned char)s2[i])
-			return (TRUE);
-		if ((unsigned char)s1[i] < (unsigned char)s2[i])
-			return (-1);
+		free(arr[i]);
 		i++;
 	}
-	return (FALSE);
+	free(arr);
 }

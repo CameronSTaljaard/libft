@@ -1,6 +1,16 @@
-NAME	= libft.a
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -c -I.
+NAME		= libft.a
+CC			= gcc
+INCLUDES 	= -I./includes
+
+# ----- Colors -----
+BLACK:="\033[1;30m"
+RED:="\033[1;31m"
+GREEN:="\033[1;32m"
+CYAN:="\033[1;35m"
+PURPLE:="\033[1;36m"
+WHITE:="\033[1;37m"
+EOC:="\033[0;0m"
+# ==================
 
 # Part 1
 SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_memccpy.c
@@ -13,28 +23,31 @@ SRCS		+= ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd
 # Bonus
 SRCS		+= ft_lstnew.c ft_lstdelone.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_lstdel.c
 # Extra
-SRCS		+= ft_iswhitespace.c ft_wordcount.c ft_sort_array.c ft_strswap.c ft_insert_node.c ft_free_list.c ft_min.c ft_max.c ft_isupper.c
+SRCS		+= ft_iswhitespace.c ft_wordcount.c ft_sort_array.c ft_strswap.c ft_insert_node.c ft_free_list.c ft_isupper.c
 SRCS		+= ft_intlen.c ft_frequency.c ft_putendl_col_fd.c ft_putchar_col_fd.c ft_putstr_col_fd.c
-SRCS		+= ft_putnbr_col_fd.c
+SRCS		+= ft_putnbr_col_fd.c ft_int_overflows.c ft_copy_array.c ft_isnum.c ft_freearray.c string_input.c
+SRCS		+= ft_realloc.c
 # get_next_line
 SRCS		+= ft_copyuntil.c get_next_line.c
 
 OBJS		= $(SRCS:.c=.o)
+FLAGS =		-Wall -Werror -Wextra -c -Iincludes
 
-OBJS =		$(SRCS:.c=.o)
-FLAGS =		-Wall -Werror -Wextra
+all:		$(NAME) $(SRCS)
 
-all:		$(NAME)
-
-$(NAME):
-		gcc $(FLAGS) -c $(SRCS)
-		ar rc $(NAME) $(OBJS)
-		ranlib $(NAME)
+$(NAME): $(SRCS)
+		@gcc $(FLAGS) $(INCLUDES) $(SRCS)
+		@echo $(GREEN)Compiled source files.$(EOC)
+		@ar rc $(NAME) $(OBJS)
+		@ranlib $(NAME)
+		@echo $(GREEN)Built library.$(EOC)
 
 clean:
-		/bin/rm -f $(OBJS)
+		@/bin/rm -f $(OBJS)
+		@echo $(GREEN)Cleaned objects.$(EOC)
 
 fclean: clean
-		/bin/rm -f $(NAME)
+		@/bin/rm -f $(NAME)
+		@echo $(GREEN)Cleaned library.$(EOC)
 
 re: fclean all

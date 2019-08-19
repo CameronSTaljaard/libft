@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wordcount.c                                     :+:      :+:    :+:   */
+/*   arrcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agabrie <agabrie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 17:13:26 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/05/22 17:13:27 by ctaljaar         ###   ########.fr       */
+/*   Created: 2018/08/25 14:54:22 by agabrie           #+#    #+#             */
+/*   Updated: 2018/08/25 14:57:08 by agabrie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_wordcount(char *str, char delim)
+#include "libft.h"
+
+void	ft_copy_array(char **arr1, char **arr2)
 {
-	int result;
 	int i;
 
 	i = 0;
-	result = 0;
-	while (str[i] && str[i] == delim)
-		i++;
-	while (str[i])
-	{
-		while (str[i] && str[i] != delim)
-			i++;
-		result++;
-		while (str[i] == delim)
-			i++;
-	}
-	return (result);
+	while (arr1[++i])
+		arr2[i - 1] = ft_strdup(arr1[i]);
+	arr2[i - 1] = NULL;
 }

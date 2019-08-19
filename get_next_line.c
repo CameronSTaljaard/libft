@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/04 12:13:10 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/06/04 12:13:11 by ctaljaar         ###   ########.fr       */
+/*   Created: 2019/06/11 12:07:08 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/06/11 12:07:10 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "libft.h"
-#include <stdlib.h>
+#include <get_next_line.h>
+#include <libft.h>
 
-static t_list			*get_link(t_list **file, int fd)
+t_list	*get_file(int fd, t_list **file)
 {
-	t_list				*tmp;
+	t_list	*tmp;
 
+	if (!file)
+		return (NULL);
 	tmp = *file;
 	while (tmp)
 	{
@@ -25,50 +26,54 @@ static t_list			*get_link(t_list **file, int fd)
 			return (tmp);
 		tmp = tmp->next;
 	}
-	tmp = ft_lstnew("\0", fd);
+	tmp = ft_lstnew("", fd);
 	ft_lstadd(file, tmp);
-	tmp = *file;
 	return (tmp);
 }
 
-static int				read_file(int fd, t_list *link)
+int		read_line(const int fd, char **content)
 {
 	int		ret;
-	int		end;
-	char	buffer[BUFF_SIZE];
+	char	*tmp;
+	char	buffer[BUFF_SIZE + 1];
 
-	end = 0;
 	while ((ret = read(fd, buffer, BUFF_SIZE)))
 	{
 		buffer[ret] = '\0';
-		if (!(link->content = ft_strjoin(link->content, buffer)))
+		tmp = *content;
+		if (!(*content = ft_strjoin(*content, buffer)))
 			return (-1);
+		free(tmp);
 		if (ft_strchr(buffer, '\n'))
 			break ;
-		end++;
 	}
-	return (end);
+	return (ret);
 }
 
-int						get_next_line(const int fd, char **line)
+int		get_next_line(const int fd, char **line)
 {
-	static t_list		*file;
-	size_t				i;
-	int					ret;
-	t_list				*pos;
+	char			buffer[BUFF_SIZE + 1];
+	int				ret;
+	static t_list	*file;
+	t_list			*curr;
+	char			*tmp;
 
-	if ((fd < 0 || line == NULL || read(fd, NULL, 0) < 0))
+	if (fd < 0 || !(line) || (read(fd, buffer, 0)) < 0 ||
+	(!(curr = get_file(fd, &file))))
 		return (-1);
-	pos = get_link(&file, fd);
-	if (!(*line = ft_strnew(1)))
-		return (-1);
-	ret = read_file(fd, pos);
-	if (ret < BUFF_SIZE && !ft_strlen(pos->content))
+	tmp = curr->content;
+	ret = read_line(fd, &tmp);
+	curr->content = tmp;
+	if (ret == 0 && *tmp == '\0')
 		return (0);
-	i = ft_copyuntil(line, pos->content, '\n');
-	if (i < ft_strlen(pos->content))
-		pos->content += i + 1;
+	ret = ft_copyuntil(line, curr->content, '\n');
+	tmp = curr->content;
+	if (tmp[ret] != '\0')
+	{
+		curr->content = ft_strdup(curr->content + ret + 1);
+		free(tmp);
+	}
 	else
-		ft_strclr(pos->content);
+		ft_strclr(tmp);
 	return (1);
 }

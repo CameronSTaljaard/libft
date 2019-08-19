@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_int_overflows.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 17:21:41 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/06/23 10:43:18 by ctaljaar         ###   ########.fr       */
+/*   Created: 2019/07/05 20:11:28 by ctaljaar          #+#    #+#             */
+/*   Updated: 2019/07/05 20:11:30 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_int_overflows(const char *str)
 {
-	int i;
+	long	res;
+	int		neg;
 
-	i = 0;
-	while ((s1[i] != '\0') || (s2[i] != '\0'))
+	res = 0;
+	neg = 1;
+	while (ft_iswhitespace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if ((unsigned char)s1[i] > (unsigned char)s2[i])
-			return (TRUE);
-		if ((unsigned char)s1[i] < (unsigned char)s2[i])
-			return (-1);
-		i++;
+		if (*str == '-')
+			neg = -1;
+		str++;
 	}
-	return (FALSE);
+	while (*str >= '0' && *str <= '9')
+	{
+		res = (res * 10) + (*str - '0');
+		str++;
+	}
+	if (neg == 1)
+		if (res > MAX_INT)
+			return (1);
+	if ((-res) < MIN_INT)
+		return (1);
+	return (0);
 }

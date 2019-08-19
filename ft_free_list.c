@@ -6,12 +6,11 @@
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 17:13:45 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/05/22 17:13:46 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/06/24 10:53:37 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "stdlib.h"
+#include <libft.h>
 
 void	ft_free_list(t_list **node)
 {

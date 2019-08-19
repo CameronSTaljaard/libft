@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <libft.h>
 
 void	ft_putchar(int c)
 {
 	unsigned char	buffer[4];
 
 	if (c < 0x80)
-		write(1, &c, 1);
+		(void)write(1, &c, 1);
 	else if (c < 0x800)
 	{
 		buffer[0] = 0xc0 | (c >> 6);

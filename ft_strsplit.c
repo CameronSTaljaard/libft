@@ -6,12 +6,11 @@
 /*   By: ctaljaar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 18:37:04 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/05/22 18:37:05 by ctaljaar         ###   ########.fr       */
+/*   Updated: 2019/06/24 10:47:27 by ctaljaar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <libft.h>
 
 static int		ft_substrlen(const char *str, int index, char delim)
 {
