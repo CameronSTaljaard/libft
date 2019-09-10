@@ -1,4 +1,9 @@
 # WeThinkCode_ - Libft
+### Score 125/100
+##### Mandatory
+100/100
+##### Bonus
+25/25
 
 ### What is libft?
 Libft is an individual project at WeThinkCode_.
@@ -46,27 +51,3 @@ isprint		| |
 toupper		| |
 tolower		| |
 
-
-Notes:
-
-- Most of the the files and function names are namespaced with an **ft** in front. It stands for Fourty Two
-- The project instructions require that we put all the source files in the root directory but for the sake of this Github repo, I separate them into sub folders.
-
-My code is not the best, but it passed all the 42 tests successfully.
-
-### How do I use the library?
-
-I added an example file called **example.c**, it's using the function **ft_putstr** to print "DON'T PANIC" to the screen. 
-
-If you try to compile it with gcc using `gcc example.c` you will get an *undefined symbol* error for ft_putstr. 
-
-You have to tell the file where your library resides and which library it is using:
-
-`gcc example.c -L. -lft`
-
--L takes the path to your library. `.` in this case<br>
--l takes the name of your library. This is the set of characters that come after `lib` in your library name.
-
-That's it. Now run it using `./a.out`
-
-That's it! If you're having some problems, just [send me a tweet][8]. If you think your problem is due to my code or this README, [create a new issue][9]. I'll definitely check it out.
