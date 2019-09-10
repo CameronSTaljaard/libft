@@ -1,5 +1,4 @@
-# Libft - @WeThinkCode_
-My implementation of some of the Standard C Library functions including some additional ones.
+# WeThinkCode_ - Libft
 
 ### What is libft?
 Libft is an individual project at WeThinkCode_.
@@ -29,23 +28,23 @@ memcmp		| ft_striteri	|				| ft_realloc
 strlen		| ft_strmap		|				| ft_isupper
 strdup		| ft_strmapi	|				| ft_islower
 strcpy		| ft_strequ		|				| ft_copyuntil
-strncpy		| ft_strnequ	|			| ft_intlen
-strcat		| ft_strsub		| | ft_intlen	| ft_frequency
-strlcat		| ft_strjoin	| | ft_strendswith	| ft_putendl_col_fd
-strchr		| ft_strtrim	| | ft_pathjoin	| ft_putchar_col_fd
-strrchr		| ft_strsplit	| | ft_lstaddback	| ft_putstr_col_fd
-strstr		| ft_itoa		| | get_next_line	| ft_putnbr_col_fd
-strnstr		| ft_putchar	| | ft_putnstr	| ft_int_overflows
-strcmp		| ft_putstr		| | ft_strreplace	| ft_copy_array
-strncmp		| ft_putendl	| | ft_isemptystr	| ft_freearray
-atoi		| ft_putnbr		| | ft_strsplitall
-isalpha		| ft_putchar_fd	| | ft_countwordsall
-isdigit		| ft_putstr_fd	| | ft_freestrarr
-isalnum		| ft_putendl_fd	| | ft_strjoincl
-isascii		| ft_putnbr_fd	| | ft_strjoinchcl
-isprint		|| | ft_count2darray
-toupper		| | | ft_strarrmax
-tolower		| | | ft_get_parent_path
+strncpy		| ft_strnequ	| | ft_intlen
+strcat		| ft_strsub		| | ft_frequency
+strlcat		| ft_strjoin	| | ft_putendl_col_fd
+strchr		| ft_strtrim	| | ft_putchar_col_fd
+strrchr		| ft_strsplit	| | ft_putstr_col_fd
+strstr		| ft_itoa		| | ft_putnbr_col_fd
+strnstr		| ft_putchar	| | ft_int_overflows
+strcmp		| ft_putstr		| | ft_copy_array
+strncmp		| ft_putendl	| | ft_freearray
+atoi		| ft_putnbr		| | get_next_line
+isalpha		| ft_putchar_fd	| | 
+isdigit		| ft_putstr_fd	| | 
+isalnum		| ft_putendl_fd	| | 
+isascii		| ft_putnbr_fd	| | 
+isprint		| |
+toupper		| |
+tolower		| |
 
 
 Notes:
